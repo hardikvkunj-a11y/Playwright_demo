@@ -14,6 +14,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './Demotest1',
+  //timeout: 60000,
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -31,9 +32,16 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-
+    baseURL:  
+    // 'https://dev83.octosglobal.info/tss_2025/',
+    'https://stg83.octosglobal.info/tss_2025/',
+    //'https://tss-sales.com/',
     headless: false,
-    viewport: { width: 1440, height: 720 },
+    viewport: { width: 1440, height: 900 },
+    actionTimeout: 15000,
+    ignoreHTTPSErrors: true,
+    //screenshot: 'only-on-failure',
+    //video: 'retain-on-failure'
   },
 
   /* Configure projects for major browsers */
